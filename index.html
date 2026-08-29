@@ -153,87 +153,82 @@
         }
 
         .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
             width: 100%;
-            max-width: 1100px;
+            max-width: 520px;
             margin-top: 20px;
+            align-items: center;
         }
 
+        /* Photo card styling */
         .photo-card {
             background: linear-gradient(135deg, #ff4b72, #ffb3c6, #ff758c);
             padding: 4px; 
             border-radius: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-6px);
+            width: 100%;
         }
 
         .photo-inner {
             background: #111118;
             border-radius: 22px;
             overflow: hidden;
-            position: relative;
             text-align: left;
         }
 
         .photo-card img {
             width: 100%;
-            height: 380px;
+            height: 450px;
             object-fit: cover;
             display: block;
         }
 
-        /* --- TEXT IN THE MIDDLE OF THE PHOTO --- */
-        .photo-badge {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 88%;
-            background: rgba(15, 15, 22, 0.88);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 75, 114, 0.4);
-            padding: 14px 16px;
-            border-radius: 16px;
+        /* --- DETAILED PARAGRAPH TEXT BOX BETWEEN IMAGES --- */
+        .between-text-box {
+            background: linear-gradient(135deg, #161622 0%, #111118 100%);
+            border: 1px solid rgba(255, 75, 114, 0.3);
+            padding: 24px 26px;
+            border-radius: 20px;
+            width: 100%;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+            align-items: flex-start;
+            gap: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            text-align: left;
         }
 
-        .badge-heart {
+        .box-heart {
             background: #ff4b72;
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 38px;
+            height: 38px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            font-size: 13px;
+            font-size: 15px;
             flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        .badge-text span {
+        .box-text span {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: #ff8e53;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
+            letter-spacing: 1.2px;
+            margin-bottom: 6px;
+            font-weight: 600;
         }
 
-        .badge-text p {
-            font-size: 0.88rem;
-            color: #fff;
+        .box-text p {
+            font-size: 1.05rem;
+            color: #e2e2ec;
             font-style: italic;
             font-weight: 400;
-            line-height: 1.4;
+            line-height: 1.7;
         }
 
         .signature-box {
@@ -278,9 +273,10 @@
             .hero-content h1 { font-size: 2.5rem; }
             .hero-content h2 { font-size: 1.4rem; }
             section { padding: 50px 15px; }
-            .photo-grid { grid-template-columns: 1fr; }
             .photo-card img { height: 400px; }
             .message-card { padding: 35px 20px; }
+            .between-text-box { padding: 18px 20px; }
+            .box-text p { font-size: 0.98rem; }
         }
     </style>
 </head>
@@ -332,79 +328,80 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION -->
+    <!-- GALLERY SECTION (PHOTOS WITH FULL PARAGRAPH TEXT BOXES BETWEEN THEM) -->
     <section class="gallery">
         <h2 class="title">Timeless Moments</h2>
         <p class="subtitle">A gallery of quiet, beautiful chapters we cherish</p>
         
         <div class="photo-grid">
-            <!-- Photo 1 (Your Custom Message) -->
+            <!-- Photo 1 -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135406.jpg" alt="Memory 1">
-                    <div class="photo-badge">
-                        <div class="badge-heart">❤</div>
-                        <div class="badge-text">
-                            <span>Radha – Krishna Bond</span>
-                            <p>"Kalisi undadam kanna okaari heart lo okaru undadam important."</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Photo 2 (Random 1) -->
+            <!-- Full Paragraph Box Between Photo 1 & 2 -->
+            <div class="between-text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Radha – Krishna Bond</span>
+                    <p>Kalisi undadam kanna okaari heart lo okaru undadam important. Radha Krishna prema lo unna aa pure feeling, understanding, and unconditional bond naaku chaala beautiful ga anipisthayi. Mana madhya unna connection kuda alage entho pavitరం ga, evaroo replace cheyyaleni sthanam lo undi.</p>
+                </div>
+            </div>
+
+            <!-- Photo 2 -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135415.jpg" alt="Memory 2">
-                    <div class="photo-badge">
-                        <div class="badge-heart">❤</div>
-                        <div class="badge-text">
-                            <span>Pure Presence</span>
-                            <p>"Nee smile, nee presence, nee tho matladina little moments chaala special."</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Photo 3 (Random 2) -->
+            <!-- Full Paragraph Box Between Photo 2 & 3 -->
+            <div class="between-text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Pure Presence & Comfort</span>
+                    <p>Nee smile, nee presence, nee tho matladina prathi chinna moment naaku chaala special. Asalu em matladakapoyina, nuvvu pakkana unte chalu... oka complete feeling vasthundi. Naa prathi roju lo nuvvu chuskune aa jagratha, chupinche care anni naaku antha peddha comfort istayi.</p>
+                </div>
+            </div>
+
+            <!-- Photo 3 -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135430.jpg" alt="Memory 3">
-                    <div class="photo-badge">
-                        <div class="badge-heart">❤</div>
-                        <div class="badge-text">
-                            <span>Beyond Words</span>
-                            <p>"Konni relationships ki peru pettalsina avasaram undadu... vallatho unna bond chaalu."</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Photo 4 (Random 3) -->
+            <!-- Full Paragraph Box Between Photo 3 & 4 -->
+            <div class="between-text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Beyond Words & Time</span>
+                    <p>Konni relationships ki peru pettalsina avasaram undadu... vallatho unna bond chaalu life lo antha andam ga undataniki. Naaku mana bond kuda alantide. Enni godavaina, enni kopalochina, mana madhya unna aa true attachment okka nimisham lo anni marichipoyeలా chesthundi.</p>
+                </div>
+            </div>
+
+            <!-- Photo 4 -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135445.jpg" alt="Memory 4">
-                    <div class="photo-badge">
-                        <div class="badge-heart">❤</div>
-                        <div class="badge-text">
-                            <span>Unconditional</span>
-                            <p>"Maybe nenu anni feelings ni perfect ga cheppalekapovachu, but you mean everything."</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Photo 5 (Random 4) -->
+            <!-- Full Paragraph Box Between Photo 4 & 5 -->
+            <div class="between-text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Endless Feelings</span>
+                    <p>Maybe nenu anni feelings ni perfect ga words lo cheppalekapovachu, but you mean the world to me. Naa life lo nuvvu isthunna value, chupinche prema evaroo ivvaleru. Ee lokam lo evaraina replace cheyyagaleru ane place lo ninnu dachukunnanu.</p>
+                </div>
+            </div>
+
+            <!-- Photo 5 -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135737.jpg" alt="Memory 5">
-                    <div class="photo-badge">
-                        <div class="badge-heart">❤</div>
-                        <div class="badge-text">
-                            <span>Forever Special</span>
-                            <p>"No matter how much life changes, some people remain special forever."</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -428,7 +425,7 @@
 
         function toggleBgMusic(e) {
             if (e) e.stopPropagation();
-            if/isPlaying) { // fixed syntax
+            if (isPlaying) {
                 bgSong.pause();
                 isPlaying = false;
                 document.getElementById("musicText").innerText = "Play Music";
