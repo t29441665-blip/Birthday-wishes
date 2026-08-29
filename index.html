@@ -3,326 +3,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Surprise For You ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>For You - Special Memories</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
-            background-color: #0b0b0b;
-            color: #e0e0e0;
+            background-color: #0b0b0e;
+            color: #ffffff;
             overflow-x: hidden;
-            text-align: center;
+            scroll-behavior: smooth;
         }
-        header {
-            padding: 60px 20px;
-            background: radial-gradient(circle, #1a1418 0%, #0b0b0b 100%);
+
+        .heart {
+            position: fixed;
+            color: #ff4b72;
+            font-size: 22px;
+            user-select: none;
+            pointer-events: none;
+            animation: float 7s linear infinite;
+            z-index: 100;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(110vh) scale(0.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        section {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 60px 20px;
+            text-align: center;
             position: relative;
         }
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #d4af37; /* Elegant Gold touch */
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
-            margin-bottom: 20px;
+
+        .hero {
+            background: radial-gradient(circle at center, #1f1b2c 0%, #0b0b0e 80%);
         }
-        h1 {
-            font-size: 2.3rem;
-            margin: 15px 0;
-            color: #fff;
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff4b72, #ff8e53, #ff6b8b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #b0b0bc;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        .label {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.85rem;
+            color: #ff4b72;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .scroll {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: #777;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-12px);}
+            60% {transform: translateY(-6px);}
+        }
+
+        .message-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .message-card {
+            background: linear-gradient(135deg, #161622 0%, #111118 100%);
+            padding: 50px 40px;
+            border-radius: 24px;
+            border: 1px solid #2a2a3e;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card::before {
+            content: '“';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            color: rgba(255, 75, 114, 0.05);
+            font-family: serif;
+        }
+
+        .message-card p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #d8d8e2;
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: #fff;
             font-weight: 500;
         }
-        p {
-            font-size: 1.05rem;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-            line-height: 1.7;
-            font-weight: 300;
+
+        .subtitle {
+            color: #9999aa;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
-        .section {
-            padding: 90px 20px;
-            min-height: 80vh;
+
+        .gallery {
+            padding: 80px 20px;
+            min-height: auto;
+        }
+
+        .memory-flow {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
             align-items: center;
         }
-        /* Music Control Button */
-        .music-banner {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 10px 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            z-index: 1000;
-            font-size: 0.85rem;
-            backdrop-filter: blur(10px);
-            color: #ddd;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        .music-banner:hover {
-            border-color: #d4af37;
-            color: #fff;
-        }
-        /* Secret Boxes */
-        .box-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        .secret-box {
-            background: #141414;
-            border: 1px solid #262626;
-            padding: 30px 20px;
-            border-radius: 12px;
-            width: 170px;
-            cursor: pointer;
-            transition: 0.4s;
-        }
-        .secret-box:hover {
-            border-color: #d4af37;
-            transform: translateY(-4px);
-        }
-        .secret-message {
-            margin-top: 25px;
-            font-size: 1.1rem;
-            color: #d4af37;
-            min-height: 40px;
-            font-weight: 400;
-            max-width: 600px;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-        /* Cards Section */
-        .card-grid {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 35px;
-        }
-        .memory-card {
-            background: #121212;
-            border-radius: 12px;
-            overflow: hidden;
-            width: 250px;
-            border: 1px solid #1f1f1f;
-            text-align: left;
-            transition: 0.3s;
-        }
-        .memory-card:hover {
-            border-color: #444;
-        }
-        .memory-card img {
+
+        .photo-card {
+            background: linear-gradient(135deg, #ff4b72, #ffb3c6, #ff758c);
+            padding: 4px; 
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             width: 100%;
-            height: 170px;
+        }
+
+        .photo-inner {
+            background: #111118;
+            border-radius: 22px;
+            overflow: hidden;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 480px;
             object-fit: cover;
+            display: block;
         }
-        .memory-card-content {
-            padding: 18px;
+
+        .text-box {
+            background: linear-gradient(135deg, #161622 0%, #111118 100%);
+            border: 1px solid rgba(255, 75, 114, 0.3);
+            padding: 24px 28px;
+            border-radius: 20px;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            text-align: left;
         }
-        .memory-card-content small {
-            color: #d4af37;
-            font-size: 0.7rem;
-            letter-spacing: 1.5px;
+
+        .box-heart {
+            background: #ff4b72;
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .box-text span {
+            display: block;
+            font-size: 0.8rem;
+            color: #ff8e53;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .box-text p {
+            font-size: 1.05rem;
+            color: #e2e2ec;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .signature-box {
+            margin-top: 35px;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #ff4b72;
             font-weight: 500;
+            letter-spacing: 0.5px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .signature-box .creator-tag {
+            font-size: 0.95rem;
+            color: #ff8e53;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
-        .memory-card-content h3 {
-            font-size: 0.95rem;
-            margin-top: 8px;
-            color: #ddd;
-            font-weight: 400;
-        }
-        /* Letter Box */
-        .letter-box {
-            background: #121212;
-            padding: 45px;
-            border-radius: 16px;
-            max-width: 650px;
-            border: 1px solid #222;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        /* Wish Button */
-        .wish-btn {
-            background: transparent;
-            color: #fff;
-            border: 1px solid #d4af37;
-            padding: 12px 32px;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            border-radius: 30px;
+
+        .music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #ff4b72, #ff758c);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 35px;
             cursor: pointer;
-            margin-top: 25px;
-            transition: 0.4s;
+            box-shadow: 0 6px 20px rgba(255, 75, 114, 0.45);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .wish-btn:hover {
-            background: #d4af37;
-            color: #000;
+
+        .music-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 75, 114, 0.6);
         }
-        footer {
-            padding: 40px;
-            background: #050505;
-            color: #555;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+
+        .music-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media(max-width: 768px){
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content h2 { font-size: 1.4rem; }
+            section { padding: 50px 15px; }
+            .photo-card img { height: 400px; }
+            .message-card { padding: 35px 20px; }
+            .text-box { padding: 18px 20px; }
+            .box-text p { font-size: 0.95rem; }
         }
     </style>
 </head>
-<body>
+<body onclick="triggerMusic()">
 
-    <!-- Background Music Audio Tag -->
-    <audio id="bgMusic" loop>
-        <source src="song.mp3" type="audio/mpeg">
+    <audio id="bgSong" loop preload="auto">
+        <source src="bgmusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
 
-    <!-- Music Control Floating Button -->
-    <div class="music-banner" onclick="toggleMusic()" id="musicBtn">
-        ▶ PLAY BGM
-    </div>
+    <button class="music-btn" onclick="toggleBgMusic(event)">
+        <span id="musicIcon">🎵</span>
+        <span id="musicText">Play Music</span>
+    </button>
 
-    <!-- Header Section -->
-    <header>
-        <div style="margin-bottom: 10px;">✨</div>
-        <div>
-            <img src="profile.jpeg" alt="Special Person" class="profile-img">
+    <div class="heart" style="left: 10%; animation-delay: 0s;">♥</div>
+    <div class="heart" style="left: 25%; animation-delay: 3s;">♥</div>
+    <div class="heart" style="left: 45%; animation-delay: 1.5s;">♥</div>
+    <div class="heart" style="left: 65%; animation-delay: 4.5s;">♥</div>
+    <div class="heart" style="left: 85%; animation-delay: 2s;">♥</div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="label">Special Memories</div>
+            <h1>No One Can Replace You</h1>
+            <h2>Forever Special 🪙</h2>
+            <p>
+                Natho unna prathi moment naaku chaala valuable. <br>
+                Ee small website complete ga nee kosame! ✨
+            </p>
+            <div class="scroll">EXPLORE MEMORIES ↓</div>
         </div>
-        <p style="letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; color: #888;">A quiet acknowledgment of</p>
-        <h1>Someone Exceptionally Important</h1>
-        <p>Life becomes significantly more meaningful when there is someone who understands your silence better than words. This is a small appreciation for that presence in my life.</p>
-        <p style="color: #d4af37; margin-top: 30px; font-size: 0.9rem; letter-spacing: 1px;">↓ SCROLL DOWN</p>
-    </header>
+    </section>
 
-    <main>
-        <!-- The Bond Section -->
-        <section class="section">
-            <small style="color: #d4af37; letter-spacing: 3px; font-weight: 500;">PERSPECTIVE</small>
-            <h2 style="font-size: 2rem; margin: 15px 0; font-weight: 400;">Beyond ordinary connections.</h2>
-            <p>Some people don't just cross paths; they anchor themselves in your thoughts. The clarity, peace, and reassurance you bring is something words rarely do justice to.</p>
-        </section>
-
-        <!-- Memories Cards Section -->
-        <section class="section">
-            <small style="color: #d4af37; letter-spacing: 3px; font-weight: 500;">MOMENTS THAT MATTER</small>
-            <h2 style="font-size: 2rem; margin: 15px 0; font-weight: 400;">Timeless instances captured 📸</h2>
-            <div class="card-grid">
-                <div class="memory-card">
-                    <img src="smile.jpeg" alt="Memory">
-                    <div class="memory-card-content">
-                        <small>Phase I</small>
-                        <h3>A genuine sense of comfort</h3>
-                    </div>
-                </div>
-                <div class="memory-card">
-                    <img src="moments.jpeg" alt="Memory">
-                    <div class="memory-card-content">
-                        <small>Phase II</small>
-                        <h3>Unspoken understanding</h3>
-                    </div>
-                </div>
-                <div class="memory-card">
-                    <img src="special.jpeg" alt="Memory">
-                    <div class="memory-card-content">
-                        <small>Phase III</small>
-                        <h3>A constant source of strength</h3>
-                    </div>
+    <!-- MESSAGE SECTION -->
+    <section>
+        <div class="message-container">
+            <h2 class="title">From My Heart</h2>
+            <p class="subtitle">A special note for you</p>
+            <div class="message-card">
+                <p>
+                    Konni relationships ki peru pettalsina avasaram undadu… vallatho unna bond chaalu. Naaku mana bond kuda alantide. 🤍
+                </p>
+                <p>
+                    Radha–Krishna laaga, kalisi undadam kanna okaari heart lo okaru undadam important ani nammutanu. Radha Krishna prema lo unna aa pure feeling, understanding, and unconditional bond naaku chaala beautiful ga anipisthayi. ✨
+                </p>
+                <div class="signature-box">
+                    <span>Forever Yours 💖</span>
+                    <div class="creator-tag">by bacchapori</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Secret Boxes Section -->
-        <section class="section">
-            <small style="color: #d4af37; letter-spacing: 3px; font-weight: 500;">THOUGHTS</small>
-            <h2 style="font-size: 2rem; margin: 15px 0; font-weight: 400;">Three reflections 💌</h2>
-            <p>Tap to reveal what usually remains unsaid.</p>
-            
-            <div class="box-container">
-                <div class="secret-box" onclick="revealSecret(1)"><span style="font-size: 1.5rem;">✦</span><br><br><span style="font-size: 0.85rem; color: #888;">Insight I</span></div>
-                <div class="secret-box" onclick="revealSecret(2)"><span style="font-size: 1.5rem;">❖</span><br><br><span style="font-size: 0.85rem; color: #888;">Insight II</span></div>
-                <div class="secret-box" onclick="revealSecret(3)"><span style="font-size: 1.5rem;">✧</span><br><br><span style="font-size: 0.85rem; color: #888;">Insight III</span></div>
+    <!-- GALLERY SECTION -->
+    <section class="gallery">
+        <h2 class="title">Timeless Moments</h2>
+        <p class="subtitle">Mana sweet memories & beautiful chapters</p>
+        
+        <div class="memory-flow">
+            <!-- Photo 1 -->
+            <div class="photo-card">
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135406.jpg" alt="Memory 1">
+                </div>
             </div>
-            <div class="secret-message" id="secretText">Select any block above to read the underlying thought.</div>
-        </section>
 
-        <!-- Letter Section -->
-        <section class="section">
-            <small style="color: #d4af37; letter-spacing: 3px; font-weight: 500;">EXPRESSION</small>
-            <h2 style="font-size: 2rem; margin: 20px 0 40px 0; font-weight: 400;">A note worth leaving behind...</h2>
-            <div class="letter-box">
-                <p style="color: #d4af37; font-weight: 500; margin-bottom: 20px; font-size: 1.1rem;">To the one who matters,</p>
-                <p>We often get caught up in routine routines, rarely pausing to acknowledge the people who make the journey worthwhile. Having you around brings a sense of stability that I truly value.</p>
-                <p style="margin-top: 15px;">This small gesture is simply a reminder of your impact—steady, genuine, and deeply appreciated.</p>
-                <p style="margin-top: 30px; text-align: right; color: #d4af37; font-weight: 400;">— Always sincere</p>
+            <!-- Text Box 1 (Your requested exact quote) -->
+            <div class="text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Special Feeling</span>
+                    <p>Nee smile 😊, nee presence, nee tho matladina little moments. 🌸 Ee chinna vishayale naaku life lo chaala peddha happiness istayi! ✨</p>
+                </div>
             </div>
-        </section>
 
-        <!-- Wish Section -->
-        <section class="section">
-            <h2 style="font-size: 2rem; margin-bottom: 10px; font-weight: 400;">A quiet aspiration 🕊️</h2>
-            <p>A silent wish for consistency and peace ahead.</p>
-            <button class="wish-btn" onclick="makeWish()">Record Thought ✨</button>
-            <p id="wishText" style="margin-top: 25px; font-weight: 400; color: #d4af37;"></p>
-        </section>
-    </main>
+            <!-- Photo 2 -->
+            <div class="photo-card">
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135415.jpg" alt="Memory 2">
+                </div>
+            </div>
 
-    <footer>
-        <p>Created with absolute sincerity and respect.</p>
-    </footer>
+            <!-- Text Box 2 (Memory 1) -->
+            <div class="text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Our Memories</span>
+                    <p>Manam matlade prathi matalo, share చేసుకునే prathi navvulo 🌟 oka unkown comfort untundi. Nuvvu pakkana unte aa roju antha chala special ga anipisthundi! 🫂</p>
+                </div>
+            </div>
 
-    <!-- JavaScript -->
+            <!-- Photo 3 -->
+            <div class="photo-card">
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135430.jpg" alt="Memory 3">
+                </div>
+            </div>
+
+            <!-- Text Box 3 (Memory 2) -->
+            <div class="text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Unbreakable Bond</span>
+                    <p>Enni small fights unna 🤭, malli mamulga matladukune aa moments 💫 mana madhya unna bond entha strongo chupisthayi. You are my safe place! 🤍</p>
+                </div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="photo-card">
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135445.jpg" alt="Memory 4">
+                </div>
+            </div>
+
+            <!-- Text Box 4 (Memory 3) -->
+            <div class="text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>Heart's Favorite</span>
+                    <p>Maybe nenu anni sarlu express cheyyakapovachu 💭, but deep down you mean everything to me. 🌍 Naa prathi thought lo nuvve untavu! ✨</p>
+                </div>
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="photo-card">
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135737.jpg" alt="Memory 5">
+                </div>
+            </div>
+
+            <!-- Text Box 5 (Last Photo Quote - You are a gift given by God) -->
+            <div class="text-box">
+                <div class="box-heart">❤</div>
+                <div class="box-text">
+                    <span>God's Greatest Gift</span>
+                    <p>Maybe life lo chaala mandhini kalustham, kani kontha mandhi matram unexpected ga vachi life ni antha andam ga marustharu. 🌟 You are a gift given by God! 🎁💖</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
-        const music = document.getElementById("bgMusic");
-        const musicBtn = document.getElementById("musicBtn");
-        let isPlaying = false;
+        var bgSong = document.getElementById("bgSong");
+        var isPlaying = false;
 
-        function toggleMusic() {
+        function triggerMusic() {
             if (!isPlaying) {
-                music.play();
-                musicBtn.innerHTML = "⏸ PAUSE BGM";
-                isPlaying = true;
-            } else {
-                music.pause();
-                musicBtn.innerHTML = "▶ PLAY BGM";
+                bgSong.play().then(() => {
+                    isPlaying = true;
+                    document.getElementById("musicText").innerText = "Pause Music";
+                    document.getElementById("musicIcon").innerText = "🎶";
+                }).catch(e => {
+                    console.log("Audio play blocked or waiting for interaction.");
+                });
+            }
+        }
+
+        function toggleBgMusic(e) {
+            e.stopPropagation();
+            if (isPlaying) {
+                bgSong.pause();
                 isPlaying = false;
+                document.getElementById("musicText").innerText = "Play Music";
+                document.getElementById("musicIcon").innerText = "🎵";
+            } else {
+                bgSong.play().then(() => {
+                    isPlaying = true;
+                    document.getElementById("musicText").innerText = "Pause Music";
+                    document.getElementById("musicIcon").innerText = "🎶";
+                }).catch(err => {
+                    alert("Please make sure 'bgmusic.mp3' file is uploaded in your GitHub repository!");
+                });
             }
-        }
-
-        function revealSecret(boxNumber) {
-            const textElement = document.getElementById("secretText");
-            if (boxNumber === 1) {
-                textElement.innerHTML = "“Your perspective on things has a way of bringing clarity when everything else feels chaotic.”";
-            } else if (boxNumber === 2) {
-                textElement.innerHTML = "“There is a distinct comfort in knowing that some bonds do not require constant maintenance to stay profound.”";
-            } else if (boxNumber === 3) {
-                textElement.innerHTML = "“Some presences in life quietly elevate everything around them. You are undeniably one of them.”";
-            }
-        }
-
-        function makeWish() {
-            const wishElement = document.getElementById("wishText");
-            wishElement.innerHTML = "— Acknowledged. May clarity and mutual respect continue to guide the path forward.";
         }
     </script>
-
 </body>
 </html>
