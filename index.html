@@ -161,7 +161,6 @@
             margin-top: 20px;
         }
 
-        /* --- STYLISH BORDER & OVERLAY BOX AS YOU WANTED --- */
         .photo-card {
             background: linear-gradient(135deg, #ff4b72, #ffb3c6, #ff758c);
             padding: 4px; 
@@ -184,54 +183,57 @@
 
         .photo-card img {
             width: 100%;
-            height: 360px;
+            height: 380px;
             object-fit: cover;
             display: block;
         }
 
-        /* Floating Box on Image */
+        /* --- TEXT IN THE MIDDLE OF THE PHOTO --- */
         .photo-badge {
             position: absolute;
-            bottom: 15px;
-            right: 15px;
-            left: 15px;
-            background: rgba(15, 15, 22, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 75, 114, 0.3);
-            padding: 12px 18px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 88%;
+            background: rgba(15, 15, 22, 0.88);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 75, 114, 0.4);
+            padding: 14px 16px;
             border-radius: 16px;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
         }
 
         .badge-heart {
             background: #ff4b72;
             color: white;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            font-size: 14px;
+            font-size: 13px;
             flex-shrink: 0;
         }
 
         .badge-text span {
             display: block;
-            font-size: 0.75rem;
-            color: #aaa;
+            font-size: 0.7rem;
+            color: #ff8e53;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 2px;
         }
 
         .badge-text p {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             color: #fff;
             font-style: italic;
-            font-weight: 500;
+            font-weight: 400;
+            line-height: 1.4;
         }
 
         .signature-box {
@@ -330,77 +332,77 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION (5 PHOTOS WITH SAMPLE OVERLAY STYLE) -->
+    <!-- GALLERY SECTION -->
     <section class="gallery">
         <h2 class="title">Timeless Moments</h2>
         <p class="subtitle">A gallery of quiet, beautiful chapters we cherish</p>
         
         <div class="photo-grid">
-            <!-- Photo 1 -->
+            <!-- Photo 1 (Your Custom Message) -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135406.jpg" alt="Memory 1">
                     <div class="photo-badge">
                         <div class="badge-heart">❤</div>
                         <div class="badge-text">
-                            <span>To My Man</span>
-                            <p>Always my favorite.</p>
+                            <span>Radha – Krishna Bond</span>
+                            <p>"Kalisi undadam kanna okaari heart lo okaru undadam important."</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Photo 2 -->
+            <!-- Photo 2 (Random 1) -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135415.jpg" alt="Memory 2">
                     <div class="photo-badge">
                         <div class="badge-heart">❤</div>
                         <div class="badge-text">
-                            <span>Pure Peace</span>
-                            <p>My absolute safe place.</p>
+                            <span>Pure Presence</span>
+                            <p>"Nee smile, nee presence, nee tho matladina little moments chaala special."</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Photo 3 -->
+            <!-- Photo 3 (Random 2) -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135430.jpg" alt="Memory 3">
                     <div class="photo-badge">
                         <div class="badge-heart">❤</div>
                         <div class="badge-text">
-                            <span>Rare Bond</span>
-                            <p>Unmatched connection.</p>
+                            <span>Beyond Words</span>
+                            <p>"Konni relationships ki peru pettalsina avasaram undadu... vallatho unna bond chaalu."</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Photo 4 -->
+            <!-- Photo 4 (Random 3) -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135445.jpg" alt="Memory 4">
                     <div class="photo-badge">
                         <div class="badge-heart">❤</div>
                         <div class="badge-text">
-                            <span>Endless Smiles</span>
-                            <p>You make everything better.</p>
+                            <span>Unconditional</span>
+                            <p>"Maybe nenu anni feelings ni perfect ga cheppalekapovachu, but you mean everything."</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Photo 5 -->
+            <!-- Photo 5 (Random 4) -->
             <div class="photo-card">
                 <div class="photo-inner">
                     <img src="Screenshot_20260829_135737.jpg" alt="Memory 5">
                     <div class="photo-badge">
                         <div class="badge-heart">❤</div>
                         <div class="badge-text">
-                            <span>Forever Close</span>
-                            <p>No one can replace you.</p>
+                            <span>Forever Special</span>
+                            <p>"No matter how much life changes, some people remain special forever."</p>
                         </div>
                     </div>
                 </div>
@@ -426,7 +428,7 @@
 
         function toggleBgMusic(e) {
             if (e) e.stopPropagation();
-            if (isPlaying) {
+            if/isPlaying) { // fixed syntax
                 bgSong.pause();
                 isPlaying = false;
                 document.getElementById("musicText").innerText = "Play Music";
