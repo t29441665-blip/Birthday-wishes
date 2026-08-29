@@ -57,7 +57,7 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 3.2rem;
             margin-bottom: 10px;
             background: linear-gradient(45deg, #ff4b72, #ff8e53, #ff6b8b);
             -webkit-background-clip: text;
@@ -66,14 +66,14 @@
         }
 
         .hero-content h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #e0e0e0;
             font-weight: 300;
             margin-bottom: 25px;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: #b0b0bc;
             max-width: 650px;
             line-height: 1.8;
@@ -161,36 +161,77 @@
             margin-top: 20px;
         }
 
+        /* --- STYLISH BORDER & OVERLAY BOX AS YOU WANTED --- */
         .photo-card {
-            background: #15151f;
-            padding: 16px;
-            border-radius: 18px;
-            border: 1px solid #252538;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            text-align: left;
+            background: linear-gradient(135deg, #ff4b72, #ffb3c6, #ff758c);
+            padding: 4px; 
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
         }
 
         .photo-card:hover {
             transform: translateY(-6px);
-            border-color: #ff4b72;
+        }
+
+        .photo-inner {
+            background: #111118;
+            border-radius: 22px;
+            overflow: hidden;
+            position: relative;
+            text-align: left;
         }
 
         .photo-card img {
             width: 100%;
-            height: 320px;
+            height: 360px;
             object-fit: cover;
-            border-radius: 12px;
+            display: block;
         }
 
-        .photo-caption {
-            margin-top: 16px;
-            font-size: 1rem;
-            color: #ffb3c6;
+        /* Floating Box on Image */
+        .photo-badge {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            left: 15px;
+            background: rgba(15, 15, 22, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 75, 114, 0.3);
+            padding: 12px 18px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        .badge-heart {
+            background: #ff4b72;
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .badge-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-text p {
+            font-size: 0.95rem;
+            color: #fff;
             font-style: italic;
-            text-align: center;
-            line-height: 1.6;
-            padding: 0 5px;
+            font-weight: 500;
         }
 
         .signature-box {
@@ -232,11 +273,11 @@
         }
 
         @media(max-width: 768px){
-            .hero-content h1 { font-size: 3rem; }
-            .hero-content h2 { font-size: 1.5rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content h2 { font-size: 1.4rem; }
             section { padding: 50px 15px; }
             .photo-grid { grid-template-columns: 1fr; }
-            .photo-card img { height: 380px; }
+            .photo-card img { height: 400px; }
             .message-card { padding: 35px 20px; }
         }
     </style>
@@ -258,10 +299,11 @@
     <div class="heart" style="left: 65%; animation-delay: 4.5s;">♥</div>
     <div class="heart" style="left: 85%; animation-delay: 2s;">♥</div>
 
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <div class="label">Dedicated to someone truly exceptional</div>
-            <h1>For You</h1>
+            <div class="label">To My Man</div>
+            <h1>No One Can Replace You</h1>
             <h2>More Than Platinum 🪙</h2>
             <p>
                 Some connections don't need years to become meaningful. <br>
@@ -271,6 +313,7 @@
         </div>
     </section>
 
+    <!-- MESSAGE SECTION -->
     <section>
         <div class="message-container">
             <h2 class="title">If I had to explain...</h2>
@@ -287,6 +330,7 @@
         </div>
     </section>
 
+    <!-- GALLERY SECTION (5 PHOTOS WITH SAMPLE OVERLAY STYLE) -->
     <section class="gallery">
         <h2 class="title">Timeless Moments</h2>
         <p class="subtitle">A gallery of quiet, beautiful chapters we cherish</p>
@@ -294,32 +338,72 @@
         <div class="photo-grid">
             <!-- Photo 1 -->
             <div class="photo-card">
-                <img src="Screenshot_20260829_135406.jpg" alt="Memory 1">
-                <div class="photo-caption">"Some smiles carry a warmth that stays deeply rooted in your heart forever."</div>
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135406.jpg" alt="Memory 1">
+                    <div class="photo-badge">
+                        <div class="badge-heart">❤</div>
+                        <div class="badge-text">
+                            <span>To My Man</span>
+                            <p>Always my favorite.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Photo 2 -->
             <div class="photo-card">
-                <img src="Screenshot_20260829_135415.jpg" alt="Memory 2">
-                <div class="photo-caption">"In a loud and chaotic world, your presence feels like absolute peace."</div>
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135415.jpg" alt="Memory 2">
+                    <div class="photo-badge">
+                        <div class="badge-heart">❤</div>
+                        <div class="badge-text">
+                            <span>Pure Peace</span>
+                            <p>My absolute safe place.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Photo 3 -->
             <div class="photo-card">
-                <img src="Screenshot_20260829_135430.jpg" alt="Memory 3">
-                <div class="photo-caption">"Certain chapters in life are beautiful simply because you chose to share them."</div>
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135430.jpg" alt="Memory 3">
+                    <div class="photo-badge">
+                        <div class="badge-heart">❤</div>
+                        <div class="badge-text">
+                            <span>Rare Bond</span>
+                            <p>Unmatched connection.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Photo 4 -->
             <div class="photo-card">
-                <img src="Screenshot_20260829_135445.jpg" alt="Memory 4">
-                <div class="photo-caption">"Time pauses just a little whenever I look back at the moments we create."</div>
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135445.jpg" alt="Memory 4">
+                    <div class="photo-badge">
+                        <div class="badge-heart">❤</div>
+                        <div class="badge-text">
+                            <span>Endless Smiles</span>
+                            <p>You make everything better.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Photo 5 -->
             <div class="photo-card">
-                <img src="Screenshot_20260829_135737.jpg" alt="Memory 5">
-                <div class="photo-caption">"Not just a memory, but a feeling I choose to hold close every single day."</div>
+                <div class="photo-inner">
+                    <img src="Screenshot_20260829_135737.jpg" alt="Memory 5">
+                    <div class="photo-badge">
+                        <div class="badge-heart">❤</div>
+                        <div class="badge-text">
+                            <span>Forever Close</span>
+                            <p>No one can replace you.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
